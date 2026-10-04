@@ -18,6 +18,12 @@
                     <group>
                         <field name="name"/>
                     </group>
+                    <group string="Медичні дані">
+                        <field name="blood_group"/>
+                        <field name="gender"/>
+                        <field name="birth_date"/>
+                        <field name="age"/>
+                    </group>
                 </sheet>
             </form>
         </field>
