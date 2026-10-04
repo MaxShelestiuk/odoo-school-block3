@@ -20,4 +20,10 @@
               parent="hr_hospital_main_menu"
               action="hospital_doctor_category_action"
               sequence="300"/>
+
+    <menuitem id="hospital_doctor_history_menu"
+              name="Історія персональних лікарів"
+              parent="hr_hospital_main_menu"
+              action="hospital_doctor_history_action"
+              sequence="400"/>
 </odoo>

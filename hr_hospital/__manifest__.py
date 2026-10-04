@@ -16,11 +16,13 @@
         "views/hr_hospital_disease_views.xml",
         "views/hr_hospital_patient_visit_views.xml",
         "views/hospital_doctor_category_views.xml",
+        "views/hospital_doctor_history_views.xml",
         "views/hr_hospital_menu.xml",
     ],
     "demo": [
         "demo/hr_hospital_doctor_demo.xml",
         "demo/hr_hospital_patient_demo.xml",
+        "demo/hospital_doctor_history_demo.xml",
     ],
     "application": True,
     "installable": True,

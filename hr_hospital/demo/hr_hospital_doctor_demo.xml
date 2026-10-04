@@ -1,15 +1,18 @@
 <odoo>
     <record id="hr_hospital_doctor_demo_1" model="hr.hospital.doctor">
         <field name="name">Богдан Хмельницький</field>
+        <field name="category_id" ref="hr_hospital.doctor_category_highest"/>
     </record>
 
     <record id="hr_hospital_doctor_demo_2" model="hr.hospital.doctor">
         <field name="name">Іван Мазепа</field>
+        <field name="category_id" ref="hr_hospital.doctor_category_intern"/>
         <field name="supervisor_doctor_id" ref="hr_hospital.hr_hospital_doctor_demo_1"/>
     </record>
 
     <record id="hr_hospital_doctor_demo_3" model="hr.hospital.doctor">
         <field name="name">Петро Дорошенко</field>
+        <field name="category_id" ref="hr_hospital.doctor_category_specialist"/>
         <field name="supervisor_doctor_id" ref="hr_hospital.hr_hospital_doctor_demo_1"/>
     </record>
 </odoo>
