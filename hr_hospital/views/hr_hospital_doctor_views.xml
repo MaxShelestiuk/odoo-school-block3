@@ -5,6 +5,7 @@
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>
+                <field name="category_id"/>
                 <field name="supervisor_doctor_id"/>
             </list>
         </field>
@@ -18,6 +19,7 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="category_id"/>
                         <field name="supervisor_doctor_id"/>
                     </group>
                 </sheet>

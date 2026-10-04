@@ -5,15 +5,17 @@
     'website': 'https://odoo.school/',
     'category': 'Customizations',
     'license': 'LGPL-3',
-    'version': '19.0.1.0.0',
+    'version': '19.0.2.0.0',
     "depends": ["base"],
     "data": [
         "security/ir.model.access.csv",
         "data/hr_hospital_disease_data.xml",
+        "data/hospital_doctor_category_data.xml",
         "views/hr_hospital_doctor_views.xml",
         "views/hr_hospital_patient_views.xml",
         "views/hr_hospital_disease_views.xml",
         "views/hr_hospital_patient_visit_views.xml",
+        "views/hospital_doctor_category_views.xml",
         "views/hr_hospital_menu.xml",
     ],
     "demo": [

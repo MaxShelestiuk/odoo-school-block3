@@ -14,4 +14,10 @@
               parent="hr_hospital_main_menu"
               action="hr_hospital_doctor_action"
               sequence="200"/>
+
+    <menuitem id="hospital_doctor_category_menu"
+              name="Кваліфікації"
+              parent="hr_hospital_main_menu"
+              action="hospital_doctor_category_action"
+              sequence="300"/>
 </odoo>
