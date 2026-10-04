@@ -17,6 +17,8 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="personal_doctor_id"/>
+                        <field name="insurance_policy_number"/>
                     </group>
                     <group string="Медичні дані">
                         <field name="blood_group"/>
@@ -24,6 +26,18 @@
                         <field name="birth_date"/>
                         <field name="age"/>
                     </group>
+                    <notebook>
+                        <page string="Історія персональних лікарів">
+                            <field name="doctor_history_ids" readonly="1">
+                                <list>
+                                    <field name="doctor_id"/>
+                                    <field name="assignment_date"/>
+                                    <field name="change_date"/>
+                                    <field name="active"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
