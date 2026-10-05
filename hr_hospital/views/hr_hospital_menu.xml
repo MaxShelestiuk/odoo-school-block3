@@ -32,4 +32,10 @@
               parent="hr_hospital_main_menu"
               action="hr_hospital_patient_visit_action"
               sequence="250"/>
+
+    <menuitem id="hr_hospital_disease_menu"
+              name="Хвороби"
+              parent="hr_hospital_main_menu"
+              action="hr_hospital_disease_action"
+              sequence="260"/>
 </odoo>

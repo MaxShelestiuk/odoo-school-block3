@@ -5,6 +5,7 @@
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>
+                <field name="parent_id"/>
             </list>
         </field>
     </record>
@@ -17,6 +18,14 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="parent_id"/>
+                    </group>
+                    <group string="Дочірні хвороби">
+                        <field name="child_ids" readonly="1" nolabel="1">
+                            <list>
+                                <field name="name"/>
+                            </list>
+                        </field>
                     </group>
                 </sheet>
             </form>
