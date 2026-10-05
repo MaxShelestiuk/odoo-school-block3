@@ -18,6 +18,7 @@
         "views/hospital_doctor_category_views.xml",
         "views/hospital_doctor_history_views.xml",
         "wizard/mass_reassign_doctor_wizard_views.xml",
+        "wizard/visit_report_wizard_views.xml",
         "views/hr_hospital_menu.xml",
     ],
     "demo": [

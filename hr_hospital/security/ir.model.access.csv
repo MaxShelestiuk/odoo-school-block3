@@ -6,3 +6,4 @@ access_hr_hospital_patient_visit_group_user,access_hr_hospital_patient_visit_gro
 access_hospital_doctor_category,hospital.doctor.category,model_hospital_doctor_category,base.group_user,1,1,1,1
 access_hospital_doctor_history,hospital.doctor.history,model_hospital_doctor_history,base.group_user,1,1,1,1
 access_mass_reassign_doctor_wizard,mass.reassign.doctor.wizard,model_mass_reassign_doctor_wizard,base.group_user,1,1,1,1
+access_visit_report_wizard,visit.report.wizard,model_visit_report_wizard,base.group_user,1,1,1,1
