@@ -1,4 +1,5 @@
-from odoo import fields, models
+from odoo import api, fields, models
+from odoo.exceptions import UserError
 
 
 class HrHospitalPatientVisit(models.Model):
@@ -37,3 +38,37 @@ class HrHospitalPatientVisit(models.Model):
         string='Хвороба',
         ondelete='restrict',
     )
+
+    def write(self, vals):
+        completed_visits = self.filtered(lambda visit: visit.state == 'done')
+
+        if completed_visits:
+            if 'state' in vals and vals['state'] != 'done':
+                raise UserError('Не можна змінювати статус завершеного візиту.')
+
+            if 'active' in vals and not vals['active']:
+                raise UserError('Не можна архівувати завершений візит.')
+
+            for visit in completed_visits:
+                if ('doctor_id' in vals and vals['doctor_id'] != visit.doctor_id.id):
+                    raise UserError('Не можна змінювати лікаря завершеного візиту.')
+
+                for field_name in ('visit_datetime', 'actual_visit_datetime',):
+                    if field_name not in vals:
+                        continue
+
+                    new_value = (fields.Datetime.to_datetime(vals[field_name]) or False)
+                    if new_value != visit[field_name]:
+                        raise UserError(
+                            'Не можна змінювати дату або час '
+                            'завершеного візиту.'
+                        )
+
+        return super().write(vals)
+
+    @api.ondelete(at_uninstall=False)
+    def _unlink_if_completed(self):
+        if any(visit.state == 'done' for visit in self):
+            raise UserError(
+                'Не можна видаляти завершений візит.'
+            )
