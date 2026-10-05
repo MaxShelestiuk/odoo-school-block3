@@ -6,7 +6,9 @@
             <list>
                 <field name="name"/>
                 <field name="category_id"/>
-                <field name="supervisor_doctor_id"/>
+                <field name="user_id" optional="hide"/>
+                <field name="is_intern"/>
+                <field name="supervisor_doctor_id" optional="hide"/>
             </list>
         </field>
     </record>
@@ -20,7 +22,11 @@
                     <group>
                         <field name="name"/>
                         <field name="category_id"/>
-                        <field name="supervisor_doctor_id"/>
+                        <field name="user_id"/>
+                        <field name="is_intern" readonly="1"/>
+                        <field name="supervisor_doctor_id"
+                               invisible="not is_intern"
+                               domain="[('is_intern', '=', False)]"/>
                     </group>
                     <group string="Медичні дані">
                         <field name="blood_group"/>

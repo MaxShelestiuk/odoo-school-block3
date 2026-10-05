@@ -1,4 +1,5 @@
-from odoo import fields, models
+from odoo import api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class HrHospitalDoctor(models.Model):
@@ -12,7 +13,36 @@ class HrHospitalDoctor(models.Model):
         string='Кваліфікація',
         ondelete='restrict',
     )
+    user_id = fields.Many2one(
+        comodel_name='res.users',
+        string='Користувач системи',
+        ondelete='set null',
+    )
+    is_intern = fields.Boolean(
+        string='Лікар є інтерном',
+        compute='_compute_is_intern',
+        store=True,
+    )
     supervisor_doctor_id = fields.Many2one(
         comodel_name='hr.hospital.doctor',
-        string="Supervising Doctor",
+        string='Ментор',
+        ondelete='restrict',
     )
+
+    @api.depends('category_id.is_intern')
+    def _compute_is_intern(self):
+        """Ознаку інтерна беремо з булевого поля кваліфікації.
+        Альтернатива — порівнювати категорію з записом через XML ID.
+        Булеве поле дозволяє налаштовувати категорії без прив'язки
+        логіки до одного майстер-запису.
+        """
+        for doctor in self:
+            doctor.is_intern = doctor.category_id.is_intern
+
+    @api.constrains('supervisor_doctor_id')
+    def _check_supervisor_doctor(self):
+        for doctor in self:
+            if doctor.supervisor_doctor_id.is_intern:
+                raise ValidationError(
+                    'Ментором не може бути лікар-інтерн.'
+                )
