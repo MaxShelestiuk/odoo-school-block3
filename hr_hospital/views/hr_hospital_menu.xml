@@ -26,4 +26,10 @@
               parent="hr_hospital_main_menu"
               action="hospital_doctor_history_action"
               sequence="400"/>
+
+    <menuitem id="hr_hospital_patient_visit_menu"
+              name="Візити пацієнтів"
+              parent="hr_hospital_main_menu"
+              action="hr_hospital_patient_visit_action"
+              sequence="250"/>
 </odoo>

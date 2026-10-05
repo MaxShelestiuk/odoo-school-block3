@@ -8,6 +8,9 @@
                 <field name="patient_id"/>
                 <field name="doctor_id"/>
                 <field name="visit_datetime"/>
+                <field name="actual_visit_datetime" optional="hide"/>
+                <field name="disease_id" optional="hide"/>
+                <field name="state"/>
             </list>
         </field>
     </record>
@@ -18,12 +21,25 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <field name="active" invisible="1"/>
                     <group>
-                        <field name="name"/>
-                        <field name="patient_id"/>
-                        <field name="doctor_id"/>
-                        <field name="visit_datetime"/>
+                        <group>
+                            <field name="name"/>
+                            <field name="patient_id"/>
+                            <field name="doctor_id"/>
+                            <field name="disease_id"/>
+                        </group>
+                        <group>
+                            <field name="state"/>
+                            <field name="visit_datetime"/>
+                            <field name="actual_visit_datetime"/>
+                        </group>
                     </group>
+                    <notebook>
+                        <page string="Епікриз">
+                            <field name="summary"/>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
